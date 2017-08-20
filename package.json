@@ -1,9 +1,9 @@
 {
   "private": true,
   "scripts": {
-    "start": "roadhog server",
-    "build": "roadhog build",
-    "build:dll": "roadhog buildDll",
+    "start": "cp src/index.html.dev src/index.html && roadhog server",
+    "build": "cp src/index.html.ssr src/index.html && roadhog build",
+    "build:dll": "roadhog buildDll && cp node_modules/roadhog-dlls/roadhog.dll.js dist/",
     "test": "roadhog test",
     "lint": "eslint --ext .js src test",
     "precommit": "npm run lint"
@@ -17,18 +17,33 @@
     "react-dom": "^15.4.2"
   },
   "devDependencies": {
+    "autoprefixer": "^7.1.2",
+    "babel-core": "^6.20.0",
     "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.2.9",
+    "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-dva-hmr": "^0.3.2",
     "babel-plugin-import": "^1.1.0",
     "babel-plugin-transform-runtime": "^6.22.0",
+    "babel-preset-env": "latest",
+    "babel-preset-react": "^6.23.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "babel-register": "^6.26.0",
+    "css-modules-require-hook": "^4.0.6",
     "eslint": "^3.14.0",
     "eslint-config-airbnb": "^14.0.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^3.0.2",
     "eslint-plugin-react": "^6.9.0",
     "expect": "^1.20.2",
+    "express": "^4.15.4",
+    "express-dva-ssr": "0.2.3",
+    "html-entities": "^1.2.1",
     "husky": "^0.13.0",
+    "node-hook": "^1.0.0",
+    "postcss": "^6.0.9",
     "redbox-react": "^1.3.2",
-    "roadhog": "^0.6.0"
+    "roadhog": "^0.6.0",
+    "url-loader": "^0.5.9"
   }
 }

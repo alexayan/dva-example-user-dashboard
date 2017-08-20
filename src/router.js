@@ -10,25 +10,17 @@ function registerModel(app, model) {
 }
 
 function RouterConfig({ history, app }) {
+  registerModel(app, require('./models/users'));
   const routes = [
     {
       path: '/',
       name: 'IndexPage',
-      getComponent(nextState, cb) {
-        require.ensure([], (require) => {
-          cb(null, require('./routes/IndexPage'));
-        });
-      },
+      component: require('./routes/IndexPage'),
     },
     {
       path: '/users',
       name: 'UsersPage',
-      getComponent(nextState, cb) {
-        require.ensure([], (require) => {
-          registerModel(app, require('./models/users'));
-          cb(null, require('./routes/Users'));
-        });
-      },
+      component: require('./routes/Users'),
     },
   ];
 

@@ -1,4 +1,5 @@
 import fetch from 'dva/fetch';
+import { API_HOST } from '../constants';
 
 function checkStatus(response) {
   if (response.status >= 200 && response.status < 300) {
@@ -18,7 +19,7 @@ function checkStatus(response) {
  * @return {object}           An object containing either "data" or "err"
  */
 export default async function request(url, options) {
-  const response = await fetch(url, options);
+  const response = await fetch(`${API_HOST}${url}`, options);
 
   checkStatus(response);
 

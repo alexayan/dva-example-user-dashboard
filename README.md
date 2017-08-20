@@ -1,6 +1,7 @@
-# dva-example-user-dashboard
+# dva-example-user-dashboard-ssr
 
-详见[《12 步 30 分钟，完成用户管理的 CURD 应用 (react+dva+antd)》](https://github.com/sorrycc/blog/issues/18)。
+基于 [express-dva-ssr](https://github.com/alexayan/express-dva-ssr) 和 [dva-example-user-dashboard](https://github.com/dvajs/dva-example-user-dashboard) 的服务器端渲染 demo
+
 
 ---
 
@@ -15,10 +16,24 @@ Install dependencies.
 $ npm install
 ```
 
-Start server.
+Build
 
 ```bash
+$ npm run build
+$ npm run build:dll
+```
+
+
+Start srr server.
+
+```bash
+$ node server/index.js
+```
+
+Start dev
+
+```bash
+$ npm run build:dll
 $ npm start
 ```
 
-If success, app will be open in your default browser automatically.
