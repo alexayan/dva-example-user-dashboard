@@ -37,7 +37,7 @@
     "eslint-plugin-react": "^6.9.0",
     "expect": "^1.20.2",
     "express": "^4.15.4",
-    "express-dva-ssr": "0.3.0",
+    "express-dva-ssr": "0.2.7",
     "html-entities": "^1.2.1",
     "husky": "^0.13.0",
     "node-hook": "^1.0.0",
