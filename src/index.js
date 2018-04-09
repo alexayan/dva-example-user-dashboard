@@ -1,15 +1,17 @@
 import dva from 'dva';
-import { browserHistory } from 'dva/router';
+import createBrowserHistory from 'history/createBrowserHistory';
 import createLoading from 'dva-loading';
 import { message } from 'antd';
 import './index.html';
 import './index.css';
 
 const ERROR_MSG_DURATION = 3; // 3 秒
+const history = createBrowserHistory();
 
 // 1. Initialize
 const app = dva({
-  history: browserHistory,
+  history,
+  initialState: window.__INITIAL_STATE__ || {}, // eslint-disable-line
   onError(e) {
     message.error(e.message, ERROR_MSG_DURATION);
   },

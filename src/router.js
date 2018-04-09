@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router } from 'dva/router';
+import { Router, Route, Switch } from 'dva/router';
 
 const cached = {};
 function registerModel(app, model) {
@@ -11,20 +11,18 @@ function registerModel(app, model) {
 
 function RouterConfig({ history, app }) {
   registerModel(app, require('./models/users'));
-  const routes = [
-    {
-      path: '/',
-      name: 'IndexPage',
-      component: require('./routes/IndexPage'),
-    },
-    {
-      path: '/users',
-      name: 'UsersPage',
-      component: require('./routes/Users'),
-    },
-  ];
 
-  return <Router history={history} routes={routes} />;
+  return (<Router history={history}>
+    <Switch>
+      <Route exact path="/" component={require('./routes/IndexPage')} />
+      <Route exact path="/users" component={require('./routes/Users')} />
+      <Route
+        component={() => {
+          return <div>404</div>;
+        }}
+      />
+    </Switch>
+  </Router>);
 }
 
 export default RouterConfig;

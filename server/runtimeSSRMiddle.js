@@ -1,6 +1,6 @@
 import ssr from 'express-dva-ssr';
 import React from 'react';
-import { Route } from 'dva/router';
+import { Route, Switch } from 'dva/router';
 import createApp from './createApp';
 import IndexPage from '../src/routes/IndexPage';
 import UsersPage from '../src/routes/Users';
@@ -8,8 +8,8 @@ import renderFullPage from './renderFullPage';
 
 const routes = (
   <div>
-    <Route path="/" sync component={IndexPage} />
-    <Route path="/users" component={UsersPage} />
+    <Route exact path="/users" component={UsersPage} />
+    <Route exact path="/" sync component={IndexPage} />
   </div>
 );
 
@@ -22,6 +22,8 @@ export default ssr.runtimeSSRMiddle({
   renderFullPage,
   onRenderSuccess,
   initialState: {
+    app: {
+    },
     users: {
       list: [],
       total: null,
