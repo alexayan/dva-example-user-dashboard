@@ -1,6 +1,6 @@
 import ssr from 'express-dva-ssr';
 import React from 'react';
-import { Route, Switch } from 'dva/router';
+import { Route } from 'dva/router';
 import createApp from './createApp';
 import IndexPage from '../src/routes/IndexPage';
 import UsersPage from '../src/routes/Users';
@@ -22,8 +22,6 @@ export default ssr.runtimeSSRMiddle({
   renderFullPage,
   onRenderSuccess,
   initialState: {
-    app: {
-    },
     users: {
       list: [],
       total: null,
