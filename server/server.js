@@ -8,8 +8,7 @@ app.use('/static', express.static(path.join(__dirname, '../dist')));
 app.use(require('./runtimeSSRMiddle'));
 
 app.use((req, res) => {
-  res.status(404);
-  res.send('not found');
+  return res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
 
 app.use((error, req, res) => {
